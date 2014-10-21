@@ -1,5 +1,6 @@
 require 'yaml'
 require "line_change/version"
+require "line_change/configuration"
 
 module LineChange
   DEFAULT_CONFIG = 'config/line_change.yml'.freeze
@@ -9,7 +10,7 @@ module LineChange
   end
 
   def self.configuration
-    @configuration ||= YAML.load(open(config_path).read)
+    @configuration ||= Configuration.new(YAML.load(open(config_path).read))
   end
 
   def self.deploy(*args)
