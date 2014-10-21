@@ -2,10 +2,10 @@ require 'yaml'
 require "line_change/version"
 
 module LineChange
-  @@config_path = ENV['HOCKEYAPP_CONFIG'] || File.expand_path('config/hockeyapp.yml')
+  DEFAULT_CONFIG = 'config/line_change.yml'.freeze
 
   def self.config_path
-    @@config_path
+    @config_path ||= ENV['LINE_CHANGE_CONFIG'] || File.expand_path(DEFAULT_CONFIG)
   end
 
   def self.configuration
