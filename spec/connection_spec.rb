@@ -1,22 +1,18 @@
 describe LineChange::Connection do
   describe '#upload' do
-    let(:adapters) do
-      [
-        :test,
-        Faraday::Adapter::Test::Stubs.new do |stub|
-          stub.post("/api/2/apps/#{app_id}/app_versions/upload") do |env| 
-            @request_body = env.body
-            [200, {}, response_body] 
-          end
-        end
-      ]
-    end
+    let(:stubs) { Faraday::Adapter::Test::Stubs.new }
+    let(:adapters) { [:test, stubs] }
     let(:app_id) { 'app_id' }
     let(:api_key) { 'api key' }
     let(:apk_path) { '/path/app.apk' }
     let(:apk_file) { double(:apk_file, to_s: 'apk_file') }
 
     before do
+      stubs.post("/api/2/apps/#{app_id}/app_versions/upload") do |env|
+        @request_body = env.body
+        [200, {}, response_body]
+      end
+
       allow(LineChange.configuration).to receive(:api_key) { api_key }
       allow(Faraday::UploadIO).to receive(:new) { apk_file }
     end
