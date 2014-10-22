@@ -39,11 +39,4 @@ describe LineChange::Deploy do
       end
     end
   end
-
-  def without_output
-    org, $stdout = $stdout, double(:stdout, write: nil)
-    yield
-  ensure
-    $stdout = org
-  end
 end
