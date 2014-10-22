@@ -1,6 +1,7 @@
 require 'yaml'
 require "line_change/version"
 require "line_change/configuration"
+require "line_change/deploy"
 
 module LineChange
   DEFAULT_CONFIG = 'config/line_change.yml'.freeze
