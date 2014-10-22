@@ -1,4 +1,4 @@
-describe LineChange::Deploy do
+describe LineChange::Deploy, if: default? do
   describe '#start' do
     let(:app_id) { 'app id' }
     let(:connection) { instance_double(LineChange::Connection) }

@@ -1,6 +1,6 @@
 
-describe LineChange do
-  describe '.configuration', if: LineChange.config_path.end_with?('default.yml') do
+describe LineChange, if: default? do
+  describe '.configuration' do
     subject { LineChange.configuration }
 
     it 'provides a getter for api_key' do

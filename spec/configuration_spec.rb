@@ -1,4 +1,4 @@
-describe LineChange::Configuration do
+describe LineChange::Configuration, if: default? do
   describe '#apps' do
     subject { configuration.apps.first }
 

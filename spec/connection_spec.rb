@@ -1,4 +1,4 @@
-describe LineChange::Connection do
+describe LineChange::Connection, if: default? do
   describe '#upload' do
     let(:stubs) { Faraday::Adapter::Test::Stubs.new }
     let(:adapters) { [:test, stubs] }
