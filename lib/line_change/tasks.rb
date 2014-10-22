@@ -6,7 +6,7 @@ namespace :line_change do
 
   apps.each do |env, app_id|
     task env.to_sym, :apk_path do |_, args|
-      LineChange.deploy(api_key, app_id, args[:apk_path])
+      LineChange.deploy(app_id, args[:apk_path])
     end
   end
 end

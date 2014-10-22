@@ -14,8 +14,8 @@ module LineChange
     @configuration ||= Configuration.new(YAML.load(open(config_path).read))
   end
 
-  def self.deploy(*args)
-    puts args
+  def self.deploy(app_id, apk_path)
+    Deploy.new(app_id, apk_path).start
   end
 end
 

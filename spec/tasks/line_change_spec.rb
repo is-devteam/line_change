@@ -13,7 +13,7 @@ describe 'hockeyapp task' do
 
         Rake::Task['line_change:production'].invoke(apk_path)
 
-        expect(LineChange).to have_received(:deploy).with(api_key, app_id, apk_path)
+        expect(LineChange).to have_received(:deploy).with(app_id, apk_path)
       end
     end
   end
