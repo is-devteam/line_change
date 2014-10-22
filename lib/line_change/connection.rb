@@ -25,11 +25,7 @@ module LineChange
     end
 
     def upload(path, id)
-      conn.post do |req|
-        req.url url(id)
-        req.headers[API_KEY_HEADER] = LineChange.configuration.api_key
-        req.body = body(path)
-      end
+      conn.post(url(id), body(path), API_KEY_HEADER => LineChange.configuration.api_key)
     end
 
     private
