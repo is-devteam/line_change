@@ -10,6 +10,7 @@ task :default => "spec:all"
 namespace :spec do
   %w(
     default
+    installer
     config_with_path
   ).each do |config_file|
     desc "Run Tests against config: #{config_file}.yml"
@@ -22,6 +23,7 @@ namespace :spec do
   task :all do
     %w(
       default
+      installer
       config_with_path
     ).each do |config_file|
       sh "LINE_CHANGE_CONFIG=spec/support/config/#{config_file}.yml bundle exec rake spec"

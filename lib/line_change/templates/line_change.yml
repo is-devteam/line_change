@@ -1,0 +1,11 @@
+api_key: api_key
+apps:
+# production: production_app_id
+#
+# staging:
+#   app_id: staging_app_id
+#   path: path/to/uploadable/staging/file
+#
+# production:
+#   app_id: production_app_id
+#   path: path/to/uploadable/production/file

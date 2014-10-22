@@ -11,6 +11,18 @@ module LineChange
       @apps ||= Array(@raw_apps).map{|app_name, app_config| App.new(app_name, app_config) }
     end
 
+    def self.exists?
+      File.exist?(LineChange.config_path)
+    end
+
+    def self.create_config(config_dir, config_path)
+      unless File.exist?(config_dir)
+        FileUtils.mkdir_p(config_dir)
+      end
+
+      FileUtils.cp("#{__dir__}/templates/line_change.yml", config_path)
+    end
+
     class App
       attr_reader :name
       alias env name
