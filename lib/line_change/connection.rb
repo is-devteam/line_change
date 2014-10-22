@@ -10,6 +10,8 @@ module LineChange
     APK_MIME_TYPE = 'application/vnd.android.package-archive'.freeze
     API_KEY_HEADER = 'X-HockeyAppToken'.freeze
 
+    Faraday::Response.register_middleware response_handler: ResponseHandler
+
     def initialize(adapters = [Faraday.default_adapter], logging = false)
       @conn = Faraday.new(url: 'https://rink.hockeyapp.net') do |faraday|
         faraday.request  :multipart
@@ -18,7 +20,7 @@ module LineChange
 
         faraday.response :logger if logging
         faraday.response :json
-        faraday.use ResponseHandler
+        faraday.response :response_handler
 
         faraday.adapter  *adapters
       end
