@@ -2,6 +2,8 @@ require 'faraday'
 require 'faraday_middleware'
 require 'json'
 
+require 'line_change/connection/response_handler'
+
 module LineChange
   class Connection
 
@@ -16,6 +18,7 @@ module LineChange
 
         faraday.response :logger if logging
         faraday.response :json
+        faraday.use ResponseHandler
 
         faraday.adapter  *adapters
       end

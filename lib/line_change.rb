@@ -1,5 +1,6 @@
 require 'yaml'
 require "line_change/version"
+require "line_change/errors"
 require "line_change/configuration"
 require "line_change/deploy"
 
