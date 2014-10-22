@@ -1,6 +1,9 @@
-path: /Users/path/to/apk.apk
 api_key: api_key
 apps:
-  other:      other_id
-  staging:    staging_id
-  production: production_id
+  staging:
+    app_id: staging_id
+    path: path/to/uploadable/staging/file
+
+  production:
+    app_id: production_id
+    path: path/to/uploadable/production/file
