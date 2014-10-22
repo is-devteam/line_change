@@ -4,7 +4,6 @@ require 'rake'
 describe 'hockeyapp task' do
   context 'basic config', if: LineChange.config_path.end_with?('default.yml') do
     let(:app_id) { 'production_id' }
-    let(:api_key) { 'api_key' }
     let(:apk_path) { 'path' }
 
     describe 'production' do

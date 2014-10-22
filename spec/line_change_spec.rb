@@ -8,9 +8,7 @@ describe LineChange do
     end
 
     it 'provides a getter for apps' do
-      expect(subject.apps). to eq({
-        'production' => 'production_id'
-      })
+      expect(subject.apps.first.name).to eq("production")
     end
   end
 
