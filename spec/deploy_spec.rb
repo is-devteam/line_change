@@ -12,12 +12,12 @@ describe LineChange::Deploy do
     end
 
     context "when file exists" do
-      let(:apk_path) { "spec/support/fixtures/newest.txt" }
+      let(:apk_path) { "spec/support/fixtures/*.txt" }
 
       it "uploads the path to the connection" do
         without_output { subject.start }
 
-        expect(connection).to have_received(:upload).with(apk_path, app_id)
+        expect(connection).to have_received(:upload).with("spec/support/fixtures/newest.txt", app_id)
       end
 
       it "outputs progress and result" do
@@ -28,6 +28,14 @@ describe LineChange::Deploy do
           "    great              : result!\n"
 
         expect { subject.start }.to output(output).to_stdout
+      end
+    end
+
+    context "when file doesn't exist" do
+      let(:apk_path) { "does/not/exist" }
+
+      it "raises an error" do
+        expect { subject.start }.to raise_error(LineChange::FileNotFound)
       end
     end
   end

@@ -9,9 +9,9 @@ module LineChange
     end
 
     def start
-      print "Uploading #{path} to Hockeyapp... "
+      print "Uploading #{most_recent_modified_file_path} to Hockeyapp... "
 
-      connection.upload(path, id).tap do |response|
+      connection.upload(most_recent_modified_file_path, id).tap do |response|
         puts "Done!" "\n\n"
         puts "Response from Hockeyapp:"
 
@@ -22,6 +22,18 @@ module LineChange
     end
 
     private
+
+    def most_recent_modified_file_path
+      @most_recent_modified_file_path ||= begin
+        file = Dir[path].map{|file_path| File.open(file_path) }.sort_by(&:mtime).last
+
+        if file
+          file.path
+        else
+          raise FileNotFound, "No such file or directory: #{path}"
+        end
+      end
+    end
 
     def connection
       @connection ||= Connection.new

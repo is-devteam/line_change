@@ -46,4 +46,6 @@ module LineChange
 
   # 422
   class UnprocessableEntity < ClientError; end
+
+  class FileNotFound < Error; end
 end
