@@ -9,11 +9,11 @@ module LineChange
     end
 
     def start
-      print "Uploading #{most_recent_modified_file_path} to Hockeyapp... "
+      print "Uploading #{most_recent_modified_file_path} to HockeyApp... "
 
       connection.upload(most_recent_modified_file_path, id).tap do |response|
         puts "Done!" "\n\n"
-        puts "Response from Hockeyapp:"
+        puts "Response from HockeyApp:"
 
         response.body.each do |key, value|
           puts "#{' ' * 4}" "#{key.ljust(19)}: #{value}"

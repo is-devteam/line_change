@@ -22,9 +22,9 @@ describe LineChange::Deploy, if: default? do
 
       it "outputs progress and result" do
         output =
-          "Uploading spec/support/fixtures/newest.txt to Hockeyapp... Done!\n" \
+          "Uploading spec/support/fixtures/newest.txt to HockeyApp... Done!\n" \
           "\n" \
-          "Response from Hockeyapp:\n" \
+          "Response from HockeyApp:\n" \
           "    great              : result!\n"
 
         expect { subject.start }.to output(output).to_stdout
