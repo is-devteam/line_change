@@ -6,10 +6,10 @@ require 'line_change/version'
 Gem::Specification.new do |spec|
   spec.name          = "line_change"
   spec.version       = LineChange::VERSION
-  spec.authors       = ["Trevor John and Yuki Nishijima"]
-  spec.email         = ["pair+tjohn+ynishijima@pivotal.io"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.authors       = ["IS Dev team"]
+  spec.email         = ["devteam@isapp.com"]
+  spec.summary       = %q{Easy apk upload tasks for HockeyApp.}
+  spec.description   = %q{LineChange provides useful rake tasks for app deployment.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
