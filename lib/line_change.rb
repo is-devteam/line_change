@@ -32,5 +32,3 @@ module LineChange
     end
   end
 end
-
-require "line_change/tasks"

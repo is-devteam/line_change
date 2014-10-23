@@ -1,4 +1,5 @@
 require 'rake'
+require 'line_change'
 
 namespace :line_change do
   LineChange.configuration.apps.each do |app|

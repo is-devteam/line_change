@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'line_change/tasks'
 
 describe 'hockeyapp task' do
   context 'basic config', if: LineChange.config_path.end_with?('default.yml') do
