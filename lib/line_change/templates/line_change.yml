@@ -1,7 +1,5 @@
-api_key: api_key
+api_key: # Your api_key should come here.
 apps:
-# production: production_app_id
-#
 # staging:
 #   app_id: staging_app_id
 #   path: path/to/uploadable/staging/file
