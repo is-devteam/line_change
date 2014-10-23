@@ -1,0 +1,23 @@
+script: "bundle exec rake spec"
+
+rvm:
+  - 2.0.0
+  - 2.1
+  - 2.2.0-preview1
+  - ruby-head
+  - jruby
+  - rbx
+
+env:
+  - LINE_CHANGE_CONFIG=spec/support/config/default.yml
+  - LINE_CHANGE_CONFIG=spec/support/config/installer.yml
+  - LINE_CHANGE_CONFIG=spec/support/config/config_with_path.yml
+
+matrix:
+  allow_failures:
+    - rvm: 2.2.0-preview1
+    - rvm: ruby-head
+    - rvm: jruby
+    - rvm: rbx
+  fast_finish: true
+
