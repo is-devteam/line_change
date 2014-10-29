@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["devteam@isapp.com"]
   spec.summary       = %q{Easy apk upload tasks for HockeyApp.}
   spec.description   = %q{LineChange provides useful rake tasks for app deployment.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/is-devteam/line_change"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
